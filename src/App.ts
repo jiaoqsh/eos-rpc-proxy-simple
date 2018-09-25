@@ -1,7 +1,9 @@
 import bodyParser from "body-parser"
 import express from "express"
 import {EOSApi} from "./api/EOSApi"
+import {getConnectLogger, getLog} from "./util/Logger"
 
+const log = getLog("app")
 const eosApiEndpoint = process.env.ENDPOINT || "http://api.bp.antpool.com"
 
 class App {
@@ -22,11 +24,13 @@ class App {
                     res.json(body)
                 })
                 .catch((err) => {
-                    res.json({error: err})
+                    res.json(err)
+                    log.error(err)
                 })
         })
         this.express.use(bodyParser.json())
         this.express.use("/", router)
+        this.express.use(getConnectLogger())
     }
 }
 
