@@ -1,4 +1,4 @@
-## eos-viewer
+## eos-rpc-proxy-simple
 
 
 ### Installation
