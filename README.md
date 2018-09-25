@@ -39,9 +39,9 @@ npm run lint
 ### Docker
 
 ```
-docker build -t ap/eos-viewer ./
+docker build -t eos-rpc-proxy ./
 
-docker run -d -p 3001:3001 --name eos-viewer ap/eos-viewer
+docker run -d -p 3001:3001 --name eos-rpc-proxy eos-rpc-proxy
 
 curl http://localhost:3001/v1/chain/get_info
 ```
